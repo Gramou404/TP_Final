@@ -23,7 +23,7 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 5009
+        - containerPort: 5009 ## Ce porte n'est changer ici que pour tester et prouver que mon deploiement fonctionneras même avec un changement de port et non pas en recopiant juste des exemples d'internet/cours
 
 ---
 apiVersion: v1

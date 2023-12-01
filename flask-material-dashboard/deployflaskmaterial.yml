@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskmaterial
+  labels:
+    app: flaskmaterial
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskmaterial
+  template:
+    metadata:
+      labels:
+        app: flaskmaterial
+    spec:
+      containers:
+      - name: flaskmaterial
+        image: flaskmaterial:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5005

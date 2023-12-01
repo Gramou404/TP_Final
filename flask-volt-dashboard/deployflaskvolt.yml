@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskvolt
+  labels:
+    app: flaskvolt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskvolt
+  template:
+    metadata:
+      labels:
+        app: flaskvolt
+    spec:
+      containers:
+      - name: flaskvolt
+        image: flaskvolt:latest
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5005

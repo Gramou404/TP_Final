@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flasklight
+  labels:
+    app: flasklight
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flasklight
+  template:
+    metadata:
+      labels:
+        app: flasklight
+    spec:
+      containers:
+      - name: flasklight
+        image: flasklight:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5005
